@@ -1,0 +1,102 @@
+﻿<Window x:Class="GestionPersonas.UI.Registros.rGrupos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionPersonas.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Grupos" Height="560" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="10,0">
+
+            <StackPanel Orientation="Vertical">
+                <Label Content="GrupoId"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="GrupoIdTextBox" Text="{Binding GrupoId}" Width="100" Height="18"/>
+                    <Button x:Name="BuscarButton" Margin="5,0" Click="BuscarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/icons8-google-web-search-24.png"/>
+                            <Label Content="Buscar"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <Label Content="Fecha"/>
+                <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Width="150" HorizontalAlignment="Left"/>
+
+                <Label Content="Descripción del grupo"/>
+                <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Width="150" HorizontalAlignment="Left"/>
+
+                <Label Content="Cantidad de Personas"/>
+                <TextBox x:Name="CantidadPTextBox" Text="{Binding CantidadPersonas}" IsReadOnly="True" Width="150" HorizontalAlignment="Left"/>
+
+                <StackPanel Orientation="Vertical">
+                    <GroupBox Header="Grupo Detalle">
+                        <StackPanel Margin="10">
+
+                            <Label Content="Persona"/>
+                            <ComboBox x:Name="PersonaComboBox" SelectedValue="{Binding PersonaId}" Width="150" HorizontalAlignment="Left"/>
+                            <Label Content="Orden"/>
+                            <TextBox x:Name="OrdenTextBox" Text="{Binding GrupoDetalle.Orden}" Width="150" HorizontalAlignment="Left"/>
+
+                            <StackPanel Orientation="Horizontal">
+
+                                <Button x:Name="AgregarFilaButton" Margin="10" Click="AgregarFilaButton_Click" Width="123">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="/Resources/agregar.png" Width="30"/>
+                                        <Label Content="Agregar fila"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button x:Name="RemoverFilaButton" Margin="10" Click="RemoverFilaButton_Click" Width="115">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="/Resources/Eliminar.png" Width="30"/>
+                                        <Label Content="Eliminar fila"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding GrupoDetalle}" Height="80" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Grupo Id" Binding="{Binding GrupoId}" Visibility="Hidden"/>
+                                    <DataGridTextColumn Header="Persona" Binding="{Binding Persona.PersonaId}"/>
+                                    <DataGridTextColumn Header="Nombres" Binding="{Binding Persona.Nombres}" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header="Orden" Binding="{Binding Orden}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+
+            </StackPanel>
+
+            <!--BARRA DE BOTONES-->
+            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center" >
+                <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>
+                        <Label Content="Nuevo"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="GuardarButton" Margin="5,0" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
+                        <Label Content="Guardar"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="EliminarButton" Margin="5,0" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-eliminar-16.png" Width="30"/>
+                        <Label Content="Eliminar"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

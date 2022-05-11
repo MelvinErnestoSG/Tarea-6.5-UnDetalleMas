@@ -1,0 +1,58 @@
+﻿<Window x:Class="GestionPersonas.UI.Registros.rTiposAportes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionPersonas.UI.Registros"
+        mc:Ignorable="d"
+     Title="Registro de Tipos Aportes" Height="335" Width="379" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <Label Content="Tipo AporteId"/>
+                <TextBox x:Name="IdTextBox" Margin="5" Text="{Binding TipoAporteId}" Width="110"/>
+
+                <Button x:Name="BuscarButton" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-google-web-search-24.png" Width="30"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            
+            <StackPanel Margin="0,5">
+                <Label Content="Descripción" Margin="0,5"/>
+                <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Width="237" HorizontalAlignment="Left"/>
+                
+                <Label Content="Meta" Margin="0,5"/>
+                <TextBox x:Name="MetaTextBox" Text="{Binding Meta, StringFormat=N2}" Width="237" HorizontalAlignment="Left"/>
+                
+                <Label Content="Logrado" Margin="0,5"/>
+                <TextBox x:Name="LogradoTextBox" Text="{Binding Logrado, StringFormat=N2}" Width="237" HorizontalAlignment="Left" IsReadOnly="True"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="0,15" HorizontalAlignment="Center">
+                <Button x:Name="NuevoButton" Margin="5,0" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-nuevo-48.png" Width="30"/>
+                        <Label Content="Nuevo"/>
+                    </StackPanel>
+                </Button>
+                
+                <Button x:Name="GuardarButton" Margin="5,0" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-guardar-48.png" Width="30"/>
+                        <Label Content="Guardar"/>
+                    </StackPanel>
+                </Button>
+                
+                <Button x:Name="EliminarButton" Margin="5,0" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/icons8-eliminar-16.png"/>
+                        <Label Content="Eliminar"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>
